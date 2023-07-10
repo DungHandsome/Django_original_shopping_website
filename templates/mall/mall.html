@@ -6,27 +6,48 @@
 {% block content %}
 <div class="header" style="margin-bottom: 3rem;">
     <div class="text-center">
-        <h1>Hi, Welcome To Eshopping</h1>
+        {% if user.is_authenticated %}
+        <h1>Hi {{ user.username }}! Have a good day!</h1>
+        {% else %}
+        <h1>Welcome To Eshopping</h1>
+        <div class="alert alert-warning" role="alert">
+            You're not login, please login before buying something...
+          </div>
+        <a class="btn btn-outline-success" href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        
     </div>
 </div>
 <div class="body">
     <div class="container">
         <div class="row">
             {% for product in Products %}
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <a href="{% url 'product' product.id %}" style="text-decoration: none; color: #000;">
                     <div class="card">
                         <div class="card-header">
                             {{product.date|date:"d-m-Y"}}
                         </div>
                         <div class="card-body">
-                          <h5 class="card-title">{{product.title}}</h5>
-                          <p class="card-text">
-                            {% if product.description|length > 30 %}
-                                <p>{{ product.description|slice:"30" }}...</a></p>
-                            {% else %}
-                                <p>{{ product.description }}</p>
+                            {% if product.image %}
+                            <div class="text-center pb-2">
+                                <img src="{{product.image.url}}" width="150" />
+                            </div>
+                            
                             {% endif %}
+                            <h5 class="card-title">
+                                {% if product.title|length > 25 %}
+                                    <p>{{ product.title|slice:"25" }}...</a></p>
+                                {% else %}
+                                    <p>{{ product.title }}</p>
+                                {% endif %}
+                            </h5>
+                            <p class="card-text">
+                              {% if product.description|length > 30 %}
+                                  <p>{{ product.description|slice:"30" }}...</a></p>
+                              {% else %}
+                                  <p>{{ product.description }}</p>
+                              {% endif %}
                           </p>
                         </div>
                       </div>
@@ -35,8 +56,6 @@
 
 
 
-                     <h4 style="margin-left: 10%;"><a href="{% url 'product' product.id %}">{{product.title}}</a></h4>
-                     <p style="margin-left: 10%;">{{product.date|date:"d-m-Y"}}</p>
 
             {% endfor %}
         </div>

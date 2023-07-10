@@ -6,3 +6,5 @@ class Product(models.Model):
     description = models.TextField()
     image = models.ImageField(null=True)
     date = models.DateTimeField(auto_now_add=True)
+    cost = models.IntegerField()
+

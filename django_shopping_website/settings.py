@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-jm=+3u^%h6d!-_-w+-1gkelaat^n#mcq2%la7)%d309)*a90gy
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Application definition
 
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mall',
+    'crispy_forms',
+    'crispy_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django_shopping_website.wsgi.application'
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
 
 
 # Database

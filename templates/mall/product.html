@@ -1,0 +1,32 @@
+{% extends '../base.html' %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block content %}
+<div class="header container pb-3">
+    <h2>{{ product.title }}</h2>
+</div>
+<div class="body container">
+    <div class="row">
+        <div class="col-md-5">
+            {% if product.image %}
+            <div class="text-center pb-2">
+                <img src="{{product.image.url}}" width="100%" />
+            </div>
+            {% else %}
+            <div class="text-center pb-2">
+                <h3 class="text-secondary">Image is not exist!</h3>
+            </div>
+
+            {% endif %}
+        </div>
+        <div class="col-md-7">
+            <h4 class="pb-3">Giá bán: {{ product.cost }} VND</h4>
+            <h4>Mô tả</h4>
+            <p class="pb-3">{{ product.description|linebreaks }}</p>
+            <button class="btn btn-success">Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
