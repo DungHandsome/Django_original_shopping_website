@@ -1,5 +1,5 @@
 {% extends '../base.html' %}
-
+{% load humanize %}
 {% block title %}{{ product.title }}{% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
             {% endif %}
         </div>
         <div class="col-md-7">
-            <h4 class="pb-3">Giá bán: {{ product.cost }} VND</h4>
+            <h4 class="pb-3">Giá bán: VND {{ product.cost|intcomma }}</h4>
             <h4>Mô tả</h4>
             <p class="pb-3">{{ product.description|linebreaks }}</p>
             <button class="btn btn-success">Thêm vào giỏ hàng</button>
