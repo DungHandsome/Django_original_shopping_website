@@ -20,14 +20,13 @@
 </div>
 <div class="body">
     <div class="container">
-        <div class="row">
+        <div class="row pt-5 pb-5" style="background-color: #fff; border-radius: 12px; padding-left: 3rem; padding-right: 3rem;">
+            <h3 class="text-dark pb-3">Suggested</h3>
             {% for product in Products %}
             <div class="col-md-2">
                 <a href="{% url 'product' product.id %}" style="text-decoration: none; color: #000;">
-                    <div class="card">
-                        <div class="card-header">
-                            {{product.date|date:"d-m-Y"}}
-                        </div>
+                    <div class="card text-bg-light border-light">
+                        
                         <div class="card-body">
                             {% if product.image %}
                             <div class="text-center pb-2">
@@ -49,6 +48,9 @@
                                   <p>{{ product.description }}</p>
                               {% endif %}
                           </p>
+                        </div>
+                        <div class="card-header">
+                            {{product.date|date:"d-m-Y"}}
                         </div>
                       </div>
                 </a>
