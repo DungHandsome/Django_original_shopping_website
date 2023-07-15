@@ -118,8 +118,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-SESSION_COOKIE_AGE = 864000
-CART_SESSION_ID = 'cart'
 
 
 # Static files (CSS, JavaScript, Images)
