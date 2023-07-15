@@ -12,7 +12,7 @@ def mall(request):
     Data = {'Products': Product.objects.all().order_by('-date')}
     return render(request, 'mall/mall.html', Data)
 def products(request, id):
-    Datas = {'Products': Product.objects.all().order_by('-date')}
+
     product = Product.objects.get(id=id)
     return render(request, 'mall/product.html', {'product': product})
 def register_request(request):
