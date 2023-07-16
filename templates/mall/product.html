@@ -3,8 +3,11 @@
 {% block title %}{{ product.title }}{% endblock %}
 
 {% block content %}
-<div class="header container pb-3">
-    <h2>{{ product.title }}</h2>
+<style>
+    body{background-color: #fff!important;}
+</style>
+<div class="header container pb-3 pt-5">
+    <h2 class="">{{ product.title }}</h2>
 </div>
 <div class="body container">
     <div class="row">
@@ -21,12 +24,28 @@
             {% endif %}
         </div>
         <div class="col-md-7">
-            <h4 class="pb-3">Giá bán: VND {{ product.cost|intcomma }}</h4>
-            <h4>Mô tả</h4>
-            <p class="pb-3">{{ product.description|linebreaks }}</p>
-            <button class="btn btn-success">Thêm vào giỏ hàng</button>
+            <h4 class="pb-3">Type: {{ product.kind }}</h4>
+            <h4 class="pb-3">Cost: VND {{ product.cost|intcomma }}</h4>
+            <h4>Description</h4>
+            <p>{{ product.description|linebreaks }}</p>
+            <button class="btn btn-success">Add to cart</button>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'product' product.id %}">
+            {% if product.title|length > 25 %}
+                {{ product.title|slice:"25" }}...
+            {% else %}
+                {{ product.title }}
+            {% endif %}
+        </a></li>
+        </ol>
+      </nav>
 </div>
 
 {% endblock %}
