@@ -5,8 +5,8 @@
 
 {% block content %}
 
-<header class="bg-dark py-5" style="margin-bottom: 3rem;">
-    <div class="px-4 px-lg-5 my-5">
+<header class="bg-dark" style="margin-bottom: 3rem;">
+    <div class="px-4 px-lg-5 pt-2">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Eshopping</h1>
             <div class="container">
@@ -16,12 +16,46 @@
                 {% else %}
                 
                 <p class="lead fw-normal text-white-50 mb-0 pb-3">You are not login, please login before buying something...</p>
-                <div class="d-flex" style="align-items: center; align-items: center; justify-content: center;">
-                    <a class="btn btn-outline-success" style="margin-right:10px ;" href="{% url 'login' %}">Log In</a>
-                    <a class="btn btn-outline-success" href="{% url 'register' %}">Sign Up</a>
-                </div>
+
 
                 {% endif %}
+
+                <div class="header">
+                  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="margin-left: 0px!important;margin-right: 0px!important;">
+                      <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        </div>
+                      <div class="carousel-inner" style="border-radius: 12px;">
+                        <div class="carousel-item active">
+                          <img src="{% static 'image/banner/beauty.jpg' %}" class="d-block w-100" alt="banner">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{% static 'image/banner/books.jpg' %}" class="d-block w-100" alt="banner">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{% static 'image/banner/gaming.jpg' %}" class="d-block w-100" alt="banner">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{% static 'image/banner/kitchen_fav.jpg' %}" class="d-block w-100" alt="banner">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{% static 'image/banner/toys.jpg' %}" class="d-block w-100" alt="banner">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+              </div>
             </div>
             
             
@@ -30,46 +64,11 @@
 </header>
 <div class="body">
     <div class="container">
-        <div class="header">
-            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="margin-left: 0px!important;margin-right: 0px!important;">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                  </div>
-                <div class="carousel-inner" style="border-radius: 12px;">
-                  <div class="carousel-item active">
-                    <img src="{% static 'image/banner/beauty.jpg' %}" class="d-block w-100" alt="banner">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{% static 'image/banner/books.jpg' %}" class="d-block w-100" alt="banner">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{% static 'image/banner/gaming.jpg' %}" class="d-block w-100" alt="banner">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{% static 'image/banner/kitchen_fav.jpg' %}" class="d-block w-100" alt="banner">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{% static 'image/banner/toys.jpg' %}" class="d-block w-100" alt="banner">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-        </div>
+        
         <div class="row pt-5 pb-5" style="background-color: #fff; border-radius: 12px; padding-left: 3rem; padding-right: 3rem;">
             <h3 class="text-dark pb-3">Suggested</h3>
             {% for product in Products %}
-            <div class="col-md-2">
+            <div class="col-md-2 mt-3">
                 <a href="{% url 'product' product.id %}" style="text-decoration: none; color: #000;">
                     <div class="card text-bg-light border-light">
                         
@@ -107,6 +106,8 @@
 
             {% endfor %}
         </div>
+
+
     </div>
 </div>
 
