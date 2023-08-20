@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<header class="bg-dark" style="margin-bottom: 3rem;">
+<header class="bg-dark" style="margin-bottom: 3rem; padding-bottom: 3rem;">
     <div class="px-4 px-lg-5 pt-2">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Eshopping</h1>
@@ -15,12 +15,14 @@
                 
                 {% else %}
                 
-                <p class="lead fw-normal text-white-50 mb-0 pb-3">You are not login, please login before buying something...</p>
+                <p class="lead fw-normal text-white-50 mb-0">You are not login, please login before buying something...</p>
 
 
                 {% endif %}
 
-                <div class="header">
+                <br>
+
+                <div class="header2">
                   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="margin-left: 0px!important;margin-right: 0px!important;">
                       <div class="carousel-indicators">
                           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
